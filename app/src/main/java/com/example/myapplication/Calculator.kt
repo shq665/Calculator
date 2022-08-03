@@ -1,6 +1,5 @@
 package com.example.myapplication
 
-import com.example.myapplication.Calculator
 import java.util.*
 
 object Calculator {
@@ -60,10 +59,12 @@ object Calculator {
     }
 
     private fun getP(token: Char): Int {
-        return if (token == '*' || token == '/') 3
-        else if (token == '+' || token == '-') 2
-        else if (token == '(') 1
-        else if (token == ')') -1
-        else 0
+        return when (token) {
+            '*', '/' -> 3
+            '+', '-' -> 2
+            '(' -> 1
+            ')' -> -1
+            else -> 0
+        }
     }
 }
