@@ -3,7 +3,13 @@ package com.example.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-fun main() {
-    val str = readln()
-    println(Calculator.RpnToAnswer(Calculator.ExpressionToRpn(str)))
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.container, CalculatorFragment())
+            .commit()
+    }
 }
